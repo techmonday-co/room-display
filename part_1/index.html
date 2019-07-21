@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Room Display</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <link rel='stylesheet' type='text/css' href='style.css'>
+    <script src='screenfull.min.js'></script>
+  </head>
+  <body>
+    <div id='room-display'>
+      <div id='events'>
+        <div id='main'>
+          <div id='main-event'>
+            <h2 id='main-event-name'>Meeting</h2>
+            <h1 id='main-event-status'>Busy</h1>
+            <h4 id='main-event-time'>10:00 - 11:00</h4>
+          </div>
+          <div id='fullscreen' onclick='toFullscreen()'></div>
+          <div id='exit-fullscreen' onclick='exitFullscreen()' style='display: none;'></div>
+        </div>
+        <div id='upcoming'>
+          <h1>Upcoming Events</h1>
+          <div class='upcoming-event'>
+            <div class='duration'>
+              <div>From Time</div>
+              <div>To Time</div>
+            </div>
+            <h4>Date</h4>
+            <h2>Meeting name</h2>
+          </div>
+          <div class='upcoming-event'>
+            <div class='duration'>
+              <div>From Time</div>
+              <div>To Time</div>
+            </div>
+            <h4>Date</h4>
+            <h2>Meeting name</h2>
+          </div>
+        </div>
+      </div>
+      <div id='configuration' class='hide'>
+        <div id='toggle' onclick="toggleConfiguration()"></div>
+      </div>
+    </div>
+
+    <script type='text/javascript'>
+      function toggleConfiguration() {
+        var configuration = document.getElementById('configuration');
+        if (configuration.className == 'hide') {
+          configuration.classList.remove('hide');
+        } else {
+          configuration.classList.add('hide');
+        }
+      }
+
+      function toFullscreen() {
+        if (screenfull.enabled) {
+          screenfull.request();
+        }
+      }
+
+      function exitFullscreen() {
+        if (screenfull.enabled) {
+          screenfull.exit();
+        }
+      }
+
+      if (screenfull.enabled) {
+        var fullscreenButton = document.getElementById('fullscreen')
+        var exitFullscreenButton = document.getElementById('exit-fullscreen')
+        screenfull.on('change', function() {
+          if (screenfull.isFullscreen) {
+            fullscreenButton.style.display = 'none';
+            exitFullscreenButton.style.display = null;
+          } else {
+            fullscreenButton.style.display = null;
+            exitFullscreenButton.style.display = 'none';
+          }
+        })
+      }
+    </script>
+  </body>
+</html>

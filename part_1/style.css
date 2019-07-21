@@ -1,0 +1,128 @@
+html, body, #room-display, #events, #main {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+
+  font-family: 'Roboto', sans-serif;
+}
+
+#main {
+  background: #593894;
+  width: 65%;
+  color: white;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  position: relative;
+}
+
+#main-event {
+  margin-left: 100px;
+}
+
+#main-event h1 {
+  font-size: 5em;
+  margin-top: 0.2em;
+  margin-bottom: 0.2em;
+}
+
+#main-event h2 {
+  margin: 0;
+}
+
+#main-event h4 {
+  font-size: 2.3em;
+  margin-top: 0;
+}
+
+#upcoming {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 35%;
+  overflow-y: auto;
+  background: white;
+}
+
+#upcoming h1 {
+  background: #4285f4;
+  margin: 0;
+  padding: 15px 20px;
+  color: white;
+}
+
+.upcoming-event {
+  position: relative;
+}
+
+.upcoming-event::after {
+  content: '';
+  position: absolute;
+  left: 30px;
+  right: 30px;
+  bottom: -4px;
+  border: 1px solid #eee;
+}
+
+.upcoming-event .duration {
+  width: 30%;
+  border-right: 1px solid #0c0c0c;
+  text-align: center;
+  position: absolute;
+  font-size: 1.4em;
+  top: 10px;
+  bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.upcoming-event h2 {
+  margin: 10px 0 10px 30%;
+  padding: 40px 10px 40px 20px;
+}
+
+.upcoming-event h4 {
+  display: block;
+  float: right;
+  padding: 5px 8px;
+  margin: 0;
+  background: pink;
+}
+
+#configuration {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 300px;
+  bottom: 0;
+  background: white;
+  padding-top: 50px;
+  text-align: center;
+  transition: all .3s ease-out;
+}
+
+#configuration.hide {
+  left: -300px;
+}
+
+#configuration #toggle {
+  position: absolute;
+  right: -40px;
+  bottom: 0px;
+  width: 40px;
+  height: 40px;
+  background: red;
+}
+
+#fullscreen, #exit-fullscreen {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 40px;
+  height: 40px;
+  background: yellow;
+}
