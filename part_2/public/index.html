@@ -270,7 +270,7 @@
         upcomingEvent.appendChild(duration);
 
         var date = document.createElement('h4');
-        date.innerHTML = startTime.getDate() + "/" + startTime.getMonth();
+        date.innerHTML = startTime.getDate() + "/" + (startTime.getMonth() + 1);
         upcomingEvent.appendChild(date);
 
         var event = document.createElement('h2');
